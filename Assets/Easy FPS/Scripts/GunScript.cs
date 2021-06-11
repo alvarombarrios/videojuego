@@ -418,36 +418,36 @@ public class GunScript : MonoBehaviour {
 	 * Creates bullets and muzzle flashes and calls for Recoil.
 	 */
 	private void ShootMethod(){
-		if(waitTillNextFire <= 0 && !reloading && pmS.maxSpeed < 5){
+		// if(waitTillNextFire <= 0 && !reloading && pmS.maxSpeed < 5){
 
-			if(bulletsInTheGun > 0){
+		// 	if(bulletsInTheGun > 0){
 
-				int randomNumberForMuzzelFlash = Random.Range(0,5);
-				if (bullet)
-					Instantiate (bullet, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
-				else
-					print ("Missing the bullet prefab");
-				holdFlash = Instantiate(muzzelFlash[randomNumberForMuzzelFlash], muzzelSpawn.transform.position /*- muzzelPosition*/, muzzelSpawn.transform.rotation * Quaternion.Euler(0,0,90) ) as GameObject;
-				holdFlash.transform.parent = muzzelSpawn.transform;
-				if (shoot_sound_source)
-					shoot_sound_source.Play ();
-				else
-					print ("Missing 'Shoot Sound Source'.");
+		// 		int randomNumberForMuzzelFlash = Random.Range(0,5);
+		// 		if (bullet)
+		// 			Instantiate (bullet, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
+		// 		else
+		// 			print ("Missing the bullet prefab");
+		// 		holdFlash = Instantiate(muzzelFlash[randomNumberForMuzzelFlash], muzzelSpawn.transform.position /*- muzzelPosition*/, muzzelSpawn.transform.rotation * Quaternion.Euler(0,0,90) ) as GameObject;
+		// 		holdFlash.transform.parent = muzzelSpawn.transform;
+		// 		if (shoot_sound_source)
+		// 			shoot_sound_source.Play ();
+		// 		else
+		// 			print ("Missing 'Shoot Sound Source'.");
 
-				RecoilMath();
+		// 		RecoilMath();
 
-				waitTillNextFire = 1;
-				bulletsInTheGun -= 1;
-			}
+		// 		waitTillNextFire = 1;
+		// 		bulletsInTheGun -= 1;
+		// 	}
 				
-			else{
-				//if(!aiming)
-				StartCoroutine("Reload_Animation");
-				//if(emptyClip_sound_source)
-				//	emptyClip_sound_source.Play();
-			}
+		// 	else{
+		// 		//if(!aiming)
+		// 		StartCoroutine("Reload_Animation");
+		// 		//if(emptyClip_sound_source)
+		// 		//	emptyClip_sound_source.Play();
+		// 	}
 
-		}
+		// }
 
 	}
 
