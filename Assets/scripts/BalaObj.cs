@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BalaObj : MonoBehaviour
 {
+    public GameObject gameController;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class BalaObj : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Enemy"){
             Destroy(other.gameObject);
+            GameObject.Find("GameController").GetComponent<GameController>().addEnemigoDestruido();
         }
     }
 }
