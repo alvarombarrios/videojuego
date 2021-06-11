@@ -12,7 +12,9 @@ public class bala : MonoBehaviour
     private float shotRateTime = 0;
 
     public AudioSource disparoSound;
-    
+
+    public GameObject gameController;
+
 
 
 
@@ -26,6 +28,7 @@ public class bala : MonoBehaviour
                 GameObject newBullet;
                 newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+                
                 shotRateTime = Time.time + shotRate;
 
                 disparoSound.Play ();
@@ -34,4 +37,6 @@ public class bala : MonoBehaviour
             }
         }
     }
+
+
 }
