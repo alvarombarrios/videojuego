@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public AudioSource energiaSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         Debug.Log("-> " + other.gameObject.tag);
         if(other.gameObject.tag == "Energy"){
+            energiaSound.Play();
             Destroy(other.gameObject);
         }
     }
